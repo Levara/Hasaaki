@@ -454,3 +454,150 @@ Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2017-08-08 19:35:54
   [1m[36mGallery Load (0.5ms)[0m  [1mSELECT "galleries".* FROM "galleries" ORDER BY "galleries"."id" ASC LIMIT 1[0m
   [1m[35mPicture Load (3.1ms)[0m  SELECT "pictures".* FROM "pictures" WHERE "pictures"."gallery_id" = ?  [["gallery_id", 1]]
   [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-08 19:55:34 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GalleriesController#index as HTML
+  [1m[35mGallery Load (0.3ms)[0m  SELECT "galleries".* FROM "galleries"
+  [1m[36mPicture Load (3.3ms)[0m  [1mSELECT "pictures".* FROM "pictures" WHERE "pictures"."gallery_id" = ? ORDER BY "pictures"."id" ASC LIMIT 1[0m  [["gallery_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "pictures".* FROM "pictures" WHERE "pictures"."gallery_id" = ? ORDER BY "pictures"."id" ASC LIMIT 1  [["gallery_id", 1]]
+  Rendered galleries/index.html.erb within layouts/application (56.3ms)
+Completed 200 OK in 268ms (Views: 257.6ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2017-08-08 19:55:35 +0200
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2017-08-08 19:55:35 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2017-08-08 19:55:35 +0200
+
+
+Started GET "/assets/pictures.css?body=1" for 127.0.0.1 at 2017-08-08 19:55:35 +0200
+
+
+Started GET "/assets/pictures.js?body=1" for 127.0.0.1 at 2017-08-08 19:55:35 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2017-08-08 19:55:35 +0200
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2017-08-08 19:55:35 +0200
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2017-08-08 19:55:35 +0200
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2017-08-08 19:55:35 +0200
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2017-08-08 19:55:35 +0200
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2017-08-08 19:55:35 +0200
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2017-08-08 19:55:35 +0200
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2017-08-08 19:55:35 +0200
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2017-08-08 19:55:35 +0200
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2017-08-08 19:55:35 +0200
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2017-08-08 19:55:35 +0200
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2017-08-08 19:55:35 +0200
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2017-08-08 19:55:35 +0200
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2017-08-08 19:55:35 +0200
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2017-08-08 19:55:35 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2017-08-08 19:55:35 +0200
+
+
+Started GET "/galleries/1" for 127.0.0.1 at 2017-08-08 19:55:40 +0200
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGallery Load (0.3ms)[0m  [1mSELECT "galleries".* FROM "galleries" WHERE "galleries"."id" = ? LIMIT 1[0m  [["id", "1"]]
+DEPRECATION WARNING: :confirm option is deprecated and will be removed from Rails 4.1. Use 'data: { confirm: 'Text' }' instead. (called from _app_views_galleries_show_html_erb__246866810109696634_30233260 at /home/vlado/code/Rails/workspace/Hasaki/Hasaaki/app/views/galleries/show.html.erb:19)
+  [1m[35mPicture Exists (0.3ms)[0m  SELECT 1 AS one FROM "pictures" WHERE "pictures"."gallery_id" = ? LIMIT 1  [["gallery_id", 1]]
+  [1m[36mPicture Load (0.4ms)[0m  [1mSELECT "pictures".* FROM "pictures" WHERE "pictures"."gallery_id" = ?[0m  [["gallery_id", 1]]
+  Rendered galleries/show.html.erb within layouts/application (23.6ms)
+Completed 200 OK in 41ms (Views: 37.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2017-08-08 19:55:41 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2017-08-08 19:55:41 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2017-08-08 19:55:41 +0200
+
+
+Started GET "/assets/pictures.css?body=1" for 127.0.0.1 at 2017-08-08 19:55:41 +0200
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2017-08-08 19:55:41 +0200
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2017-08-08 19:55:41 +0200
+
+
+Started GET "/assets/pictures.js?body=1" for 127.0.0.1 at 2017-08-08 19:55:41 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2017-08-08 19:55:41 +0200
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2017-08-08 19:55:41 +0200
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2017-08-08 19:55:41 +0200
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2017-08-08 19:55:41 +0200
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2017-08-08 19:55:41 +0200
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2017-08-08 19:55:41 +0200
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2017-08-08 19:55:41 +0200
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2017-08-08 19:55:41 +0200
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2017-08-08 19:55:41 +0200
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2017-08-08 19:55:41 +0200
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2017-08-08 19:55:41 +0200
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2017-08-08 19:55:41 +0200
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2017-08-08 19:55:41 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2017-08-08 19:55:41 +0200
