@@ -53,6 +53,9 @@ case $key in
     dev)
     DEVELOPMENT_MODE=YES
     ;;
+    console)
+    CONSOLE=YES
+    ;;
     run)
     if [[ "$2" = "" ]]; then
       echo "run option expects a path to directory with images"
@@ -130,11 +133,23 @@ then
                        rails db:environment:set RAILS_ENV=development; \
                        bundle exec rake db:setup; \
                        rails server -b 0.0.0.0 -p 3000"
+  fi
+fi
 
-  else
-    echo "Dev mode must be run from imageclinic-gui project directory"
+if [[ $CONSOLE = "YES" ]]; 
+then
+  IMAGECLINIC_PATH=`pwd`
+  DOCKER_ID=` docker ps | grep levara:imageclinic | cut -d" " -f1 `
+  echo $DOCKER_ID
+  if [[ $DOCKER_ID = "" ]]; 
+  then
+    echo "ImageClinic is not running. Start ImageClinic in another shell and 
+          run the command again."
     exit
   fi
+  docker exec -it "$DOCKER_ID" \
+    /bin/bash -c "cd ~/src; BASH_ENV=/usr/local/rvm/bin/rvm \
+                  /bin/bash -l"
 fi
 
 
@@ -143,6 +158,7 @@ fi
       #/bin/bash -c "source /usr/local/rvm/bin/rvm; \
                     #cd ~/app; rails server"
 
-
+# vim runner helper
+#script_parameters: console
 
 

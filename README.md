@@ -86,6 +86,16 @@ changes to the files are visible immediately to the rails server.
 To restart the server simply ctrl+c previous server and run `imageclinic dev`
 again.
 
+#### Console:
+
+       imageclinic console
+
+If you need access to docker container you can run `imageclinic console` which
+will give you bash session inside the container. Run the command from a
+different terminal while `imageclinic dev` is running. Command will fail if
+ImageClinic is not running. Command can be run from any directory, you don't
+have to be in ImageClinic project directory.
+
 ## Projects used in this app:
 
 TODO

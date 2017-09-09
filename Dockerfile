@@ -10,6 +10,7 @@ COPY imageclinic-assets/install_rubies.sh /tmp/bootstrap/install_rubies.sh
 RUN bash /tmp/bootstrap/install_rubies.sh
 COPY imageclinic-assets/optimization_deps.sh /tmp/bootstrap/optimization_deps.sh
 RUN /tmp/bootstrap/optimization_deps.sh
+COPY imageclinic-assets/bashrc /root/.bashrc
 
 COPY imageclinic-assets/install_imageclinic.sh /tmp/bootstrap/install_imageclinic.sh
 RUN /tmp/bootstrap/install_imageclinic.sh
