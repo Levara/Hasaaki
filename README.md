@@ -74,6 +74,18 @@ provide a path for the images.
 
 Test images are taken from Yardstick image test suite: https://yardstick.pictures/
 
+ImageClinic app is written in Rails. After cloning it is not necessarry to run
+`bundle install` because the app is run inside the docker container. You should
+not break anything if you do run bundle install, but it's better to let the
+container install the bundle. 
+
+You can still run any other rails and rake commands directly from app source
+directory. The source directory is mounted directly in the container so all the
+changes to the files are visible immediately to the rails server.
+
+To restart the server simply ctrl+c previous server and run `imageclinic dev`
+again.
+
 ## Projects used in this app:
 
 TODO
