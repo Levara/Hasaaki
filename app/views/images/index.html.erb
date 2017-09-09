@@ -1,0 +1,39 @@
+<div class="row">
+  <h1>Gallery</h1>
+  <p>
+  Images: <%= @images.count %>
+  </p>
+
+
+</div>
+
+<h2>Pictures</h2>
+
+<div class="row">
+  <ul class="thumbnails files">
+    <% unless @images.empty? %>
+      <% @images.each do |image| %>
+        <li class="span3" id="image_<%= image.id %>">
+          <div class="thumbnail">
+            <%= image_tag(image.original_path)  %>
+            <div class="caption">
+              <p style="text-align: center;">
+              <%= image.original_path %>
+
+              <%#= link_to "Edit picture", "#" %>
+
+              <%#=
+              link_to "Delete picture", pic,
+              :data => { :confirm => "Are you sure?" },
+              :method => :delete
+              %>
+
+              </p>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
+
