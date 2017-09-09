@@ -7,5 +7,6 @@ rvm @global do gem install bundler
 cd ~/app
 bundle install
 rails db:environment:set RAILS_ENV=development
+bundle exec rake db:setup
 
 
