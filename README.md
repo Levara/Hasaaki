@@ -1,1 +1,67 @@
-Gallery image upload with compression script
+# ImageClinic - Heal your images
+
+This is currently in very heavy alpha phase.
+
+## Features: 
+- Guetzli, Mozjpeg and libjpeg encoders for image compression
+- Automatic optimization of images based on DSSIM similarity to original
+- All original images stay in the repo and can be reverted if necessarry 
+- PNG support using QuantPNG [TODO]
+- A lot more coming 
+
+TODO: 
+- Select port with command line switch
+
+
+## Usage:
+
+#### Regular usage:
+
+Navigate to folder containing images you wish to optimize and run:
+
+       imageclinic run path/to/folder/with/images
+
+ImageClinic mounts your folder with images to Docker container and runs the
+app. App is available at http://localhost:3000
+
+Changing the port on which it runs is not yet implemented.
+
+#### Installation:
+
+Dependencies: Docker and Bash
+
+Clone the repo and navigate to it in terminal. Run:
+
+       ./imageclinic install
+
+ImageClinic will simlink the script to the folder of your choice (default is
+/usr/local/bin).
+
+**That's it.**
+
+Periodically you can run:
+
+       ./imageclinic reinstall
+
+Which will rebuild the app from scratch, pulling down any changes to any of the
+repos used in the project.
+
+
+## ImageClinic development:
+
+For development of ImageClinic itself navigate to where you cloned the repo and
+run:
+
+       imageclinic dev
+
+ImageClinic will mount itself to the container in development mode and start
+the server, so any change to the code will be visible immediately.
+Also, ImageClinic will mount test_images folder so that you don't have to
+provide a path for the images. 
+
+Test images are taken from Yardstick image test suite: https://yardstick.pictures/
+
+## Projects used in this app:
+
+- TODO:
+
