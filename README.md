@@ -9,9 +9,6 @@ This is currently in very heavy alpha phase.
 - PNG support using QuantPNG [TODO]
 - A lot more coming 
 
-TODO: 
-- Select port with command line switch
-
 
 ## Usage:
 
@@ -63,5 +60,10 @@ Test images are taken from Yardstick image test suite: https://yardstick.picture
 
 ## Projects used in this app:
 
-- TODO:
+TODO
+
+
+## TODO: 
+- Select port with command line switch
+- Commit docker image for faster install
 
