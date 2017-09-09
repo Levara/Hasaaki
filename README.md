@@ -12,7 +12,7 @@ This is currently in very heavy alpha phase.
 
 ## Usage:
 
-#### Regular usage:
+### Regular usage:
 
 Navigate to folder containing images you wish to optimize and run:
 
@@ -23,9 +23,25 @@ app. App is available at http://localhost:3000
 
 Changing the port on which it runs is not yet implemented.
 
-#### Installation:
+### Installation:
 
 Dependencies: Docker and Bash
+
+#### Docker:
+
+Install docker on your operation system:
+
+- For windows and mac: https://docs.docker.com/engine/installation/
+- For linux install from your distro's repositories using your packet manager
+  (apt, yum, pacman or whatever)
+
+Test your docker install with:
+
+       docker run hello-world
+
+If docker runs sucessfully you are ready to use ImageClinic.
+
+#### ImageClinic:
 
 Clone the repo and navigate to it in terminal. Run:
 
