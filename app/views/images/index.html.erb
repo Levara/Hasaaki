@@ -27,8 +27,10 @@
               :data => { :confirm => "Are you sure?" },
               :method => :delete
               %>
-
               </p>
+
+              <%= link_to 'Optimize', optimize_jpeg_path(image), :class => 'btn btn-mini' %>
+
             </div>
           </div>
         </li>

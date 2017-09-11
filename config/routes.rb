@@ -3,6 +3,8 @@ Hasaaki::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   root :to => 'images#index'
+  get '/optimize_jpeg/:image_id', to: "images#optimize_single_jpeg", as: "optimize_jpeg"
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
