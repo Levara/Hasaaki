@@ -1,11 +1,18 @@
-class OptimizeSingleJpegJob < ApplicationJob
+class OptimizeSingleJpegJob < ActiveJob::Base
 	queue_as :urgent
 
+  after_perform :notify
+
 	def perform(*args)
-    image = args[:image]
-    puts "Optimizing image #{image.original_path}"
-    #
-    puts "second argument test"
+    image = args[0]
+    puts image.original_path
+	end
+
+  def notify
+    puts "notify"
+
+  end
+
     #
     #
     #
@@ -46,5 +53,4 @@ class OptimizeSingleJpegJob < ApplicationJob
 				#user.notify_user("#{count} new #{"image".pluralize(count)} added to database.")
 			#end
 		#end
-	end
 end
