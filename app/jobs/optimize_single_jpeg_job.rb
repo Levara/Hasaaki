@@ -53,7 +53,7 @@ class OptimizeSingleJpegJob < ActiveJob::Base
     `cp "#{origpath}" "#{workpath}/original.jpg"`
 
     #TESTING
-    #`convert -quality 98 -resize '1920x>'  "#{workpath}/original.jpg" "#{workpath}/original.jpg"`
+    `convert -quality 98 -resize '1920x>'  "#{workpath}/original.jpg" "#{workpath}/original.jpg"`
     #`convert -quality 98 -resize '920x>'  "#{workpath}/original.jpg" "#{workpath}/original.jpg"`
 
     puts "Convert to png"
