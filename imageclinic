@@ -125,7 +125,9 @@ then
     docker run -i \
       -v $IMAGECLINIC_PATH:/root/src/ \
       -v $IMAGECLINIC_PATH/test_images/:/root/src/public/imageclinic \
-      -p 3000:3000 -t levara:imageclinic \
+      -p 3000:3000 \
+      --tmpfs /ramdisk:rw \
+      -t levara:imageclinic \
       /bin/bash -l -c "source /usr/local/rvm/bin/rvm > /dev/null; \
                        cd ~/src; \
                        bundle install > /dev/null; \

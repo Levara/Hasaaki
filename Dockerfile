@@ -14,5 +14,6 @@ COPY imageclinic-assets/bashrc /root/.bashrc
 
 COPY imageclinic-assets/install_imageclinic.sh /tmp/bootstrap/install_imageclinic.sh
 RUN /tmp/bootstrap/install_imageclinic.sh
+RUN mkdir /ramdisk
 EXPOSE 3000
 
