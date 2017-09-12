@@ -4,6 +4,7 @@ ImageClinic::Application.routes.draw do
 
   root :to => 'images#index'
   get '/optimize_jpeg/:image_id', to: "images#optimize_single_jpeg", as: "optimize_jpeg"
+  resources :images, only: [:show]
 
 
   # The priority is based upon order of creation:

@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row-fluid">
   <h1>Gallery</h1>
   <p>
   Images: <%= @images.count %>
@@ -7,9 +7,9 @@
 
 </div>
 
-<h2>Pictures</h2>
 
-<div class="row">
+<div class="row-fluid">
+<h2>Pictures</h2>
   <ul class="thumbnails files">
     <% unless @images.empty? %>
       <% @images.each do |image| %>
@@ -30,6 +30,7 @@
               </p>
 
               <%= link_to 'Optimize', optimize_jpeg_path(image), :class => 'btn btn-mini' %>
+              <%= link_to 'Show', image_path(image), :class => 'btn btn-mini btn-success' %>
 
             </div>
           </div>
