@@ -16,9 +16,9 @@ files.sort.each do |path|
       images[image] = {} if images[image].nil?
 
       if image.eql? path
-        images[image][:short] = path
+        images[image][:short] = path.to_s
       else
-        images[image][:long] = path
+        images[image][:long] = path.to_s
       end
 
     end
@@ -47,7 +47,7 @@ images.each do |key, image|
   newimg.original_height = imgdata[original][1].to_i
   newimg.original_size = imgdata[original][2].to_i
 
-  newimg.optimized_path = optimized[7..-1] unless optimized.nil?
+  newimg.optimized_path = optimized[6..-1] unless optimized.nil?
   newimg.optimized_width = imgdata[optimized][0].to_i unless optimized.nil?
   newimg.optimized_height = imgdata[optimized][1].to_i unless optimized.nil?
   newimg.optimized_size = imgdata[optimized][2].to_i unless optimized.nil?
