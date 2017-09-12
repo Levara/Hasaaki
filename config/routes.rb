@@ -4,6 +4,7 @@ ImageClinic::Application.routes.draw do
 
   root :to => 'images#index'
   get '/optimize_jpeg/:image_id', to: "images#optimize_single_jpeg", as: "optimize_jpeg"
+  get '/revert_image/:image_id', to: "images#revert_image", as: "revert_image"
   resources :images, only: [:show]
 
 

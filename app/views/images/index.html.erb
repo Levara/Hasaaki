@@ -8,6 +8,19 @@
 </div>
 
 
+<!-- 
+<div class="row-fluid">
+<h2>Paths</h2>
+  <% unless @images.empty? %>
+    <% @images.each do |image| %>
+      <p><%= image.original_path %><br />
+      <%= image.optimized_path %></p>
+    <% end %>
+  <% end %>
+</div>
+--!>
+
+
 <div class="row-fluid">
 <h2>Pictures</h2>
   <ul class="thumbnails files">
@@ -15,10 +28,16 @@
       <% @images.each do |image| %>
         <li class="span3" id="image_<%= image.id %>">
           <div class="thumbnail">
-            <%= image_tag(image.original_path)  %>
+            <% if image.optimized > 0 %>
+              <p> <span class="label label-success">Optimized</span> </p>
+            <% else %>
+              <p> <span class="label label-important">Not optimized</span> </p>
+            <% end %>
+            <% path = image.optimized_path ? image.optimized_path : image.original_path %>
+            <%= image_tag(path)  %>
             <div class="caption">
               <p style="text-align: center;">
-              <%= image.original_path %>
+              <%= path %>
 
               <%#= link_to "Edit picture", "#" %>
 
@@ -31,6 +50,7 @@
 
               <%= link_to 'Optimize', optimize_jpeg_path(image), :class => 'btn btn-mini' %>
               <%= link_to 'Show', image_path(image), :class => 'btn btn-mini btn-success' %>
+              <%= link_to 'Revert', revert_image_path(image), :class => 'btn btn-mini btn-warning' %>
 
             </div>
           </div>
