@@ -1,0 +1,27 @@
+.sidebar-navigation {
+    background-color: #34383a;
+    color: $white;
+    border-right: 1px solid #404547;        
+}
+
+.navigation__items {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    
+    .item {
+        height: auto;
+        padding: 20px 0;
+        transition: all .35s ease-in-out;      
+    
+        &:hover {
+            background-color: #22252E;
+            cursor: pointer;
+        }
+        
+        &.active {
+            background-color: #22252E;        
+        }
+    }
+
+}

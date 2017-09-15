@@ -1,0 +1,26 @@
+// Modules
+@import "modules/colors.scss"; 
+
+// Partials
+@import "partials/layout__navigation.scss";
+@import "partials/layout__library.scss";
+@import "partials/layout__preview.scss";
+
+body {
+    margin: 0;
+    background-color: rgb(248, 247, 245);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}  
+
+/* CSS Grid Code */
+.app--layout {
+    display: grid;
+    grid-template-columns: 80px 480px 1fr;
+    grid-template-rows: 100vh;
+}
+
+
