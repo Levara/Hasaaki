@@ -163,6 +163,7 @@ DEPENDENCIES
   less-rails
   rails (= 5)
   rmagick
+  sass
   sass-rails
   sqlite3
   therubyracer

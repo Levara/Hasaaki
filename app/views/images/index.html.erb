@@ -1,65 +1,62 @@
-<div class="row-fluid">
-  <h1>Gallery</h1>
-  <p>
-  Images: <%= @images.count %>
-  </p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Photo Compression Tool</title>
 
+    <!-- Font Awesome CDN -->
+    <script src="https://use.fontawesome.com/98a1849afa.js"></script>
+</head>
+<body>
 
-</div>
+    <div class="app--layout">
 
-
-<!-- 
-<div class="row-fluid">
-<h2>Paths</h2>
-  <% unless @images.empty? %>
-    <% @images.each do |image| %>
-      <p><%= image.original_path %><br />
-      <%= image.optimized_path %></p>
-    <% end %>
-  <% end %>
-</div>
---!>
-
-
-<div class="row-fluid">
-<h2>Pictures</h2>
-  <ul class="thumbnails files">
-    <% unless @images.empty? %>
-      <% @images.each do |image| %>
-        <li class="span3" id="image_<%= image.id %>">
-          <div class="thumbnail">
-            <% if image.optimized > 0 %>
-              <p> <span class="label label-success">Optimized</span>
-              Ratio: <%= (image.original_size.to_f - image.optimized_size.to_f) / image.original_size * 100 unless image.optimized_size.nil?   %></p>
-            <% else %>
-              <p> <span class="label label-important">Not optimized</span> </p>
-            <% end %>
-            <% path = image.optimized_path ? image.optimized_path : image.original_path %>
-            <%= image_tag(path)  %>
-            <div class="caption">
-              <p style="text-align: center;">
-              <%= path %>
-
-              <%#= link_to "Edit picture", "#" %>
-
-              <%#=
-              link_to "Delete picture", pic,
-              :data => { :confirm => "Are you sure?" },
-              :method => :delete
-              %>
-              </p>
-
-              <p>
-              <%= link_to 'Optimize', optimize_jpeg_path(image), :class => 'btn btn-mini' %>
-              <%= link_to 'Show', image_path(image), :class => 'btn btn-mini btn-success' %>
-              <%= link_to 'Revert', revert_image_path(image), :class => 'btn btn-mini btn-warning' %>
-              </p>
-
+        <!-- NAVIGATION SIDEBAR -->
+        <nav class="sidebar-navigation">
+            <div class="navigation__items">
+                <div class="photos item">
+                    <i class="fa fa-picture-o fa-2x" aria-hidden="true"></i>
+                </div>
+                <div class="settings item">
+                    <i class="fa fa-cog fa-2x" aria-hidden="true"></i>    
+                </div>
             </div>
-          </div>
-        </li>
-      <% end %>
-    <% end %>
-  </ul>
-</div>
+        </nav>
 
+        <!-- IMAGE LIBRARY -->
+        <div class="library">
+            <div class="optimize__section">
+                <%= link_to 'Optimize', optimize_jpeg_path(1), :class => 'button' %>
+            </div>
+            <div class="library__items">
+              <% unless @images.empty? %>
+                <% @images.each do |image| %>
+                  <div class="img__wrapper">
+                    <% path = image.optimized_path ? image.optimized_path : image.original_path %>
+                    <%= link_to image_tag(path), image_path(image), :remote => true, id: image.id, :class => 'imageTile' %>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+        </div>
+        
+        <!-- IMAGE PREVIEW -->
+        <div class="preview">
+            <div id="targetDiv" class="image__preview">“
+                      
+            </div>
+        </div>
+
+
+    </div>
+
+</body>
+<script>
+$(document).on('click', '.imageTile', () => {
+    const id = $(this).attr('id')
+
+    $.ajax({
+        url: '/show/'+id
+    })
+})
+</html>

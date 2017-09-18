@@ -6,13 +6,14 @@ class ImagesController < ApplicationController
   end
 
   def optimize_single_jpeg(*args)
-    image = Image.find(params[:image_id])
-    if image.optimized == 0
-      OptimizeSingleJpegJob.perform_later(image) unless image.nil?
-      redirect_to root_path, notice: "Image optimization started."
-    else
-      redirect_to root_path, notice: "Image already optimized", class: "important"
+    @images = Image.all
+    @images.each do |image|
+      image = Image.find(image.id)
+      if image.optimized == 0
+        OptimizeSingleJpegJob.perform_later(image) unless image.nil?
+      end
     end
+    redirect_to root_path, notice: "Image optimization started."
   end
 
   def revert_image(*args)
@@ -27,6 +28,10 @@ class ImagesController < ApplicationController
 
   def show
     @image = Image.find(params[:id])
+
+    respond_to do |format|
+      format.js { render :show }
+    end
   end
     
 
