@@ -20,9 +20,6 @@ class ImagesController < ApplicationController
     @images = Image.all
     @images.each do |image|
       image = Image.find(image.id)
-      if image.optimized == 0
-        break
-      end
       RevertImageJob.perform_later(image) unless image.nil?
     end
     redirect_to root_path, notice: "Reverting image", class: "important"
