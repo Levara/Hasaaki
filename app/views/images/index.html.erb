@@ -26,7 +26,11 @@
         <!-- IMAGE LIBRARY -->
         <div class="library">
             <div class="optimize__section">
-                <%= link_to 'Optimize', optimize_jpeg_path(1), :class => 'button' %>
+                <% if @images.first.optimized_path %>
+                    <%= link_to 'Revert optimization', revert_image_path(1), :class => 'button' %>
+                <% else %>
+                    <%= link_to 'Optimize', optimize_jpeg_path(1), :class => 'button' %>
+                <% end %>
             </div>
             <div class="library__items">
               <% unless @images.empty? %>
